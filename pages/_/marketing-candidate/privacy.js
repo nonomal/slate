@@ -32,12 +32,12 @@ export function CopyEmail() {
   const [copySuccess, setCopySuccess] = useState("");
 
   function copyToClipboard() {
-    navigator.clipboard.writeText("abuse@filecoin.io");
+    navigator.clipboard.writeText("contact@slate.host");
     setCopySuccess("Copied!");
   }
   return (
     <div css={STYLES_COPY_EMAIL}>
-      <a onClick={copyToClipboard}>abuse@filecoin.io</a>
+      <a onClick={copyToClipboard}>contact@slate.host</a>
       {copySuccess}
     </div>
   );
