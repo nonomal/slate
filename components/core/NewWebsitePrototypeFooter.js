@@ -2,7 +2,6 @@ import * as React from "react";
 import * as Constants from "~/common/constants";
 
 import { css } from "@emotion/react";
-import { motion } from "framer-motion";
 
 const STYLES_CONTAINER = css`
   font-family: ${Constants.font.text};
@@ -12,7 +11,7 @@ const STYLES_CONTAINER = css`
   display: flex;
   align-items: top;
   justify-content: top;
-  padding: 96px 88px 240px 88px;
+  padding: 96px 88px;
   background-color: ${Constants.system.pitchBlack};
   @media (max-width: ${Constants.sizes.mobile}px) {
     position: absolute;
@@ -81,7 +80,7 @@ const STYLES_RIGHT = css`
   }
 `;
 
-export default (props) => {
+export const WebsitePrototypeFooter = (props) => {
   return (
     <div css={STYLES_CONTAINER} style={props.style}>
       <div css={STYLES_TRADEMARK}>
@@ -128,11 +127,31 @@ export default (props) => {
             Github
           </a>
           <br />
-          <a css={STYLES_LINK} href="https://github.com/filecoin-project/slate/issues">
+          <a
+            css={STYLES_LINK}
+            href="https://github.com/filecoin-project/slate/issues"
+          >
             Community Guidelines
           </a>
           <br />
-          <a css={STYLES_LINK} href="https://github.com/filecoin-project/slate/issues">
+          <a
+            css={STYLES_LINK}
+            href="https://github.com/filecoin-project/slate/issues"
+          >
+            Privacy
+          </a>
+          <br />
+          <a
+            css={STYLES_LINK}
+            href="https://github.com/filecoin-project/slate/issues"
+          >
+            Privacy
+          </a>
+          <br />
+          <a
+            css={STYLES_LINK}
+            href="https://github.com/filecoin-project/slate/issues"
+          >
             Privacy
           </a>
         </div>
@@ -140,3 +159,4 @@ export default (props) => {
     </div>
   );
 };
+export default WebsitePrototypeFooter;

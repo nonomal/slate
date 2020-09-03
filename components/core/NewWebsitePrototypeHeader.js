@@ -220,12 +220,16 @@ const STYLES_MENU_OPEN = css`
   }
 `;
 
-export default (props) => {
+export const WebsitePrototypeHeader = (props) => {
   const [open, setOpen] = useState(false);
   return (
     <div css={STYLES_CONTAINER} style={props.style}>
       <div css={STYLES_LEFT}>
-        <a css={STYLES_LINK} href="/" style={{ marginRight: 24, fontFamily: Constants.font.semiBold }}>
+        <a
+          css={STYLES_LINK}
+          href="/"
+          style={{ marginRight: 24, fontFamily: Constants.font.semiBold }}
+        >
           Slate {Constants.values.version}
         </a>
       </div>
@@ -236,7 +240,11 @@ export default (props) => {
         <a css={STYLES_LINK} style={{ marginRight: 24 }} href="/_/system">
           Design System
         </a>
-        <a css={STYLES_LINK} style={{ marginRight: 24 }} href="https://github.com/filecoin-project/slate">
+        <a
+          css={STYLES_LINK}
+          style={{ marginRight: 24 }}
+          href="https://github.com/filecoin-project/slate"
+        >
           Community
         </a>
         <a css={STYLES_LINK} style={{ marginRight: 24 }} href="/_/system">
@@ -247,19 +255,25 @@ export default (props) => {
         </a>
       </div>
       <div>
-        <div open={open} onClick={() => setOpen(!open)} css={open ? STYLES_BURGER_OPEN : STYLES_BURGER}>
+        <div
+          open={open}
+          onClick={() => setOpen(!open)}
+          css={open ? STYLES_BURGER_OPEN : STYLES_BURGER}
+        >
           <div css={open ? STYLES_BURGER_BUN_OPEN : STYLES_BURGER_BUN} />
           <div css={open ? STYLES_BURGER_MEAT_OPEN : STYLES_BURGER_MEAT} />
           <div css={open ? STYLES_BURGER_BUN2_OPEN : STYLES_BURGER_BUN2} />
         </div>
         <div open={open} css={open ? STYLES_MENU_OPEN : STYLES_MENU}>
-          <a href="/">View source</a>
-          <a href="/">Design system</a>
-          <a href="/">Community</a>
+          <a href="https://github.com/filecoin-project/slate">View source</a>
+          <a href="/system">Design system</a>
+          <a href="/community">Community</a>
           <a href="/">Sign up</a>
-          <a href="/">Download</a>
+          <a href="/download">Download</a>
         </div>
       </div>
     </div>
   );
 };
+
+export default WebsitePrototypeHeader;
