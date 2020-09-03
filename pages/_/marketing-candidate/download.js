@@ -14,7 +14,22 @@ const STYLES_ROOT = css`
   flex-direction: column;
   justify-content: space-between;
   section {
+    width: 1140px;
     margin: auto;
+  }
+  h1 {
+    font-size: 46px;
+    line-height: 100%;
+  }
+  button {
+    background: #36383d;
+    color: $system.white;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
   }
 
   @media (max-width: ${Constants.sizes.mobile}px) {
@@ -25,6 +40,10 @@ const STYLES_APP = css`
   background-color: #e2e2e2;
   display: flex;
   flex-direction: row;
+  h1 {
+    font-size: 46px;
+    line-height: 100%;
+  }
 `;
 
 const STYLES_EXTENSTION = css`
@@ -34,18 +53,23 @@ const STYLES_EXTENSTION = css`
 `;
 const STYLES_WRAPPER_TEXT = css`
   width: 40%;
-  align-items: left;
+  vertical-align: middle;
 `;
 const STYLES_BROWSER = css`
   width: 60%;
   border: 1px solid #000000;
   box-shadow: 0px 0px 0px #dcdcdc;
-  align-items: right;
+  vertical-align: middle;
 `;
 
-export const getServerSideProps = async (context) => {
+const STYLES_ANNOTATION = css`
+  font-size: 12px;
+  color: #646464;
+`;
+
+export const getServerSideProps = async context => {
   return {
-    props: { ...context.query },
+    props: { ...context.query }
   };
 };
 
@@ -54,7 +78,10 @@ export default class IndexPage extends React.Component {
     const response = await Actions.health();
     console.log("HEALTH_CHECK", response);
   }
-
+  getOs = () => {
+    const os = ["Windows", "Linux", "Mac"]; // add your OS values
+    return os.find(v => navigator.appVersion.indexOf(v) >= 0);
+  };
   render() {
     const title = `Slate Download`;
     const description = "Donwload Slate app and web extenstion";
@@ -80,7 +107,7 @@ export default class IndexPage extends React.Component {
                   Download Slate for <span>Mac</span>
                 </button>
               </a>
-              <System.P>
+              <System.P css={STYLES_ANNOTATION}>
                 Also avaible for <a>Windows</a> and <a>Linux</a>
               </System.P>
             </div>
@@ -102,6 +129,9 @@ export default class IndexPage extends React.Component {
               <a>
                 <button>Get Chrome Extension</button>
               </a>
+              <System.P css={STYLES_ANNOTATION}>
+                Currently avaible for <a>Chrome</a> .
+              </System.P>
             </div>
             <img
               css={STYLES_BROWSER}
