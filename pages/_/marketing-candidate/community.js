@@ -8,24 +8,44 @@ import ReactDOM from "react-dom";
 import { css } from "@emotion/react";
 
 import WebsitePrototypeWrapper from "~/components/core/WebsitePrototypeWrapper";
-import WebsitePrototypeHeader from "~/components/core/WebsitePrototypeHeader";
+import WebsitePrototypeHeader from "~/components/core/NewWebsitePrototypeHeader";
 import WebsitePrototypeFooter from "~/components/core/NewWebsitePrototypeFooter";
 
 const STYLES_ROOT = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  padding: 5%;
-  margin: 0;
+  padding: 16px 88px;
+  section {
+    width: 1140px;
+    margin: auto;
+    padding: 15vh 0;
+  }
+  h1 {
+    font-size: 46px;
+    line-height: 100%;
+  }
+  button {
+    background: #36383d;
+    color: white;
+    width: 300px;
+    height: 60px;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+  }
+
+  @media (max-width: ${Constants.sizes.mobile}px) {
+  }
 `;
 
-const STYLES_SECTION_CONTAINER = css `
+const STYLES_SECTION_CONTAINER = css`
   width: 100%;
   height: 100vh;
 `;
 
-const STYLES_OPENSOURCE_CONTAINER = css `
+const STYLES_OPENSOURCE_CONTAINER = css`
   width: 100%;
   background-color: ${Constants.system.foreground};
 `;
@@ -34,20 +54,20 @@ const STYLES_HEADER_TEXT = css`
   font-size: 4.768rem;
   padding: 0px 0px 32px 0px;
   width: 100%;
-    @media (max-width: ${Constants.sizes.mobile}px) {
-      font-size: 2.441rem;
-    }
+  @media (max-width: ${Constants.sizes.mobile}px) {
+    font-size: 2.441rem;
+  }
 `;
 
-const STYLES_SECTION_TEXT = css `
+const STYLES_SECTION_TEXT = css`
   font-size: 1rem;
   color: ${Constants.system.black};
-    @media (max-width: ${Constants.sizes.mobile}px) {
-      font-size: 0.78rem;
-    }
+  @media (max-width: ${Constants.sizes.mobile}px) {
+    font-size: 0.78rem;
+  }
 `;
 
-const STYLES_CONTRIBUTOR_CONTAINER = css `
+const STYLES_CONTRIBUTOR_CONTAINER = css`
   display: grid;
   padding-top: 32px;
   column-gap: 5px;
@@ -59,31 +79,31 @@ const STYLES_CONTRIBUTOR_CONTAINER = css `
   overflow: hidden;
 `;
 
-const STYLES_CONTRIBUTOR_CARD = css `
+const STYLES_CONTRIBUTOR_CARD = css`
   height: 200px;
   width: 150px;
   background-color: ${Constants.system.white};
 `;
 
-const STYLES_IMAGE_CONTAINER = css `
+const STYLES_IMAGE_CONTAINER = css`
   height: 150px;
   width: 150px;
 `;
 
-const STYLES_CARD_IMAGE = css `
+const STYLES_CARD_IMAGE = css`
   width: 100%;
   height: auto;
 `;
 
-const STYLES_CARD_TEXT = css `
+const STYLES_CARD_TEXT = css`
   font-size: 1rem;
   color: ${Constants.system.black};
-    @media (max-width: ${Constants.sizes.mobile}px) {
-      font-size: 0.78rem;
+  @media (max-width: ${Constants.sizes.mobile}px) {
+    font-size: 0.78rem;
   }
 `;
 
-const STYLES_SECTION_CONTRIBUTE = css `
+const STYLES_SECTION_CONTRIBUTE = css`
   width: 100%;
   height: 80%;
   display: grid;
@@ -95,94 +115,94 @@ const STYLES_BTN_SPACER = css`
   padding-bottom: 32px;
 `;
 
-const STYLES_IMAGES_CONTAINER = css `
+const STYLES_IMAGES_CONTAINER = css`
   grid-row: 1 / span 2;
   grid-column: 2;
   display: flex;
   flex-direction: column;
 `;
 
-const STYLES_IMAGE_CONT = css `
+const STYLES_IMAGE_CONT = css`
   max-width: 500px;
   float: right;
-  justify-self: center; 
+  justify-self: center;
   align-self: center;
-  margin-bottom: 20px;  
+  margin-bottom: 20px;
   border: 1px solid ${Constants.system.border};
   box-shadow: 5px 5px 1px ${Constants.system.border};
 `;
 
-const STYLES_CONTRIBUTE_CONTAINER = css `
+const STYLES_CONTRIBUTE_CONTAINER = css`
   width: 100%;
-  height: 100vh;  
+  height: 100vh;
 `;
 
-const STYLES_IMAGE_THREE = css `
+const STYLES_IMAGE_THREE = css`
   width: 100%;
   height: auto;
 `;
 
-const STYLES_SECTION_QUOTE = css `
+const STYLES_SECTION_QUOTE = css`
   grid-row: 3;
-  grid-column: 1; 
+  grid-column: 1;
   font-size: 2rem;
   color: ${Constants.system.black};
-    @media (max-width: ${Constants.sizes.mobile}px) {
-      font-size: 1rem;
+  @media (max-width: ${Constants.sizes.mobile}px) {
+    font-size: 1rem;
   }
 `;
 
-const STYLES_CONTACT_CONTAINER = css `
+const STYLES_CONTACT_CONTAINER = css`
   width: 100%;
   height: auto;
 `;
 
-const STYLES_CONTACT_BTN_CONTAINER = css `
+const STYLES_CONTACT_BTN_CONTAINER = css`
   display: flex;
   padding: 96px 0;
   flex-direction: row;
   justify-content: space-around;
 `;
 
-const STYLES_INTEGRATE_GIF = css `
+const STYLES_INTEGRATE_GIF = css`
   width: 100%
   height: 70vh;
   padding-top: 20vh;
 `;
 
-const STYLES_DESIGN_CONTAINER = css `
+const STYLES_DESIGN_CONTAINER = css`
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 32px;
 `;
 
-const STYLES_D_TEXT = css `
+const STYLES_D_TEXT = css`
   grid-column: 1;
   grid-row: 1;
 `;
 
-const STYLES_DESIGN_CODE = css `
+const STYLES_DESIGN_CODE = css`
   width: 100%;
   grid-row: 2;
   grid-column: 1;
-`;  
+`;
 
-const STYLES_D_IMAGE_CONTAINER = css `
+const STYLES_D_IMAGE_CONTAINER = css`
   height: auto;
   width: 90%;
   grid-column: 2;
   grid-row: 1 / span 2;
 `;
 
-const STYLES_DESIGN_IMAGE = css `
+const STYLES_DESIGN_IMAGE = css`
   width: 100%;
   height: auto;
 `;
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async context => {
   return {
-    props: { ...context.query },
+    props: { ...context.query }
   };
 };
 
@@ -194,122 +214,145 @@ export default class IndexPage extends React.Component {
   }
 
   contributorsList = [
-    {id: 1,
-     name: "jimmylee",
-     url: "https://github.com/jimmylee",
-     organization: "",
-     pic: "/static/a1.jpg"
+    {
+      id: 1,
+      name: "jimmylee",
+      url: "https://github.com/jimmylee",
+      organization: "Slate",
+      pic:
+        "https://avatars0.githubusercontent.com/u/310223?s=400&u=62a15c1b5791b953fc5153a4b3f491f4b0bf2ae5&v=4"
     },
-    {id: 2,
+    {
+      id: 2,
       name: "martinalong",
       url: "https://github.com/martinalong",
-      organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 3,
+      organization: "Slate",
+      pic:
+        "https://avatars2.githubusercontent.com/u/33686587?s=400&u=d1841da2872f30f7f8cb80e67cdc9b385d0f50e1&v=4"
+    },
+    {
+      id: 3,
       name: "gndclouds",
       url: "https://github.com/gndclouds",
-      organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 4,
+      organization: "Slate",
+      pic:
+        "https://avatars0.githubusercontent.com/u/1757261?s=400&u=b7136d82bfacac3002b3b08980ac611ca7f34b7b&v=4"
+    },
+    {
+      id: 4,
       name: "uonai",
       url: "https://github.com/uonai",
       organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 5,
+      pic:
+        "https://avatars2.githubusercontent.com/u/7935491?s=400&u=8d91d58215c8df440eacf37d6291d912252685c3&v=4"
+    },
+    {
+      id: 5,
       name: "tarafanlin",
       url: "https://github.com/tarafanlin",
-      organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 6,
+      organization: "Slate",
+      pic:
+        "https://avatars2.githubusercontent.com/u/35607644?s=400&u=48483bdf251e5293fefb30ae993bfa04d06601a6&v=4"
+    },
+    {
+      id: 6,
       name: "jasonleyser",
       url: "https://github.com/",
-      organization: "",
+      organization: "Slate",
       pic: "/static/a1.jpg"
-     },
-     {id: 7,
+    },
+    {
+      id: 7,
       name: "akuokojnr",
       url: "https://github.com/akuokojnr",
       organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 8,
+      pic:
+        "https://avatars2.githubusercontent.com/u/31008944?s=400&u=340814cc84eac860654a072781661e58aadaf560&v=4"
+    },
+    {
+      id: 8,
       name: "jordattebayo",
       url: "https://github.com/jordattebayo",
       organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 9,
+      pic:
+        "https://avatars2.githubusercontent.com/u/31581758?s=400&u=21765bba0c302a554ef3aab835450a32fc947a98&v=4"
+    },
+    {
+      id: 9,
       name: "Pooja",
       url: "https://github.com/",
       organization: "",
       pic: "/static/a1.jpg"
-     },
-     {id: 10,
+    },
+    {
+      id: 10,
       name: "tmytrn",
       url: "https://github.com/tmrtrn",
       organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 11,
+      pic:
+        "https://avatars0.githubusercontent.com/u/2691514?s=400&u=b589dc97fa893152768b00c27b5f9f68d1a7fb79&v=4"
+    },
+    {
+      id: 11,
       name: "motdde",
       url: "https://github.com/motdde",
       organization: "",
-      pic: "/static/a1.jpg"
-     },
-     {id: 12,
+      pic:
+        "https://avatars3.githubusercontent.com/u/12215060?s=400&u=aa85ebcfc7438becdb50a67aa79e78ba8feb2d77&v=4"
+    },
+    {
+      id: 12,
       name: "harisbutt",
       url: "https://github.com/harisbutt",
       organization: "",
       pic: "/static/a1.jpg"
-     },
-     {id: 13,
+    },
+    {
+      id: 13,
       name: "andrewxhill",
       url: "https://github.com/andrewxhill",
       organization: "",
       pic: "/static/a1.jpg"
-     },
-     {id: 14,
+    },
+    {
+      id: 14,
       name: "johannes-jp",
       url: "https://github.com/johannes-jp",
       organization: "",
       pic: "/static/a1.jpg"
-     },
-     {id: 15,
+    },
+    {
+      id: 15,
       name: "Anish-Agnihotri",
       url: "https://github.com/anish-agnihotri",
       organization: "",
       pic: "/static/a1.jpg"
-     },
-     {id: 16,
+    },
+    {
+      id: 16,
       name: "Aminejvm",
       url: "https://github.com/aminejvm",
       organization: "",
       pic: "/static/a1.jpg"
-     },     
-  ]
+    }
+  ];
 
   addContributors = () => {
-    const allContributors = []
-    const contributors = this.contributorsList
+    const allContributors = [];
+    const contributors = this.contributorsList;
     for (let c of contributors) {
       allContributors.push(
         <div key={c.id} css={STYLES_CONTRIBUTOR_CARD}>
           <div css={STYLES_IMAGE_CONTAINER}>
-            <img css={STYLES_CARD_IMAGE} src={c.pic}/>
+            <img css={STYLES_CARD_IMAGE} src={c.pic} />
           </div>
-          <System.P css={STYLES_CARD_TEXT}>
-            {c.name}
-          </System.P>
+          <System.P css={STYLES_CARD_TEXT}>{c.name}</System.P>
           <a href={c.url}>{`@${c.name}`}</a>
         </div>
-      )
+      );
     }
-    ReactDOM.render(allContributors, document.getElementById("contr-cont"))
-  }
+    ReactDOM.render(allContributors, document.getElementById("contr-cont"));
+  };
 
   render() {
     const title = `Slate`;
@@ -325,76 +368,74 @@ export default class IndexPage extends React.Component {
       >
         <WebsitePrototypeHeader />
         <div css={STYLES_ROOT}>
-          <div css={STYLES_OPENSOURCE_CONTAINER}>
-            <System.H1 css={STYLES_HEADER_TEXT}>Open source</System.H1>
-            <System.P css={STYLES_SECTION_TEXT}>
-              Slate is designed and built by a growing community of hackers,
-              artists, and creatives on the web.
-            </System.P>
-            <div id="contr-cont" css={STYLES_CONTRIBUTOR_CONTAINER}>
+          <section>
+            <div>
+              <System.H1>
+                Slate is designed and built by a growing community of hackers,
+                artists, and creatives on the web.
+              </System.H1>
+              <System.P>ytu</System.P>
             </div>
-          </div>
-          <div css={STYLES_CONTRIBUTE_CONTAINER}>
-            <System.H1 css={STYLES_HEADER_TEXT}>Contribute</System.H1>
-            <div css={STYLES_SECTION_CONTRIBUTE}>
-                <System.P css={STYLES_SECTION_TEXT, STYLES_BTN_SPACER}>Get involved with the project and contribute.</System.P>
-                <a>
-                  <System.ButtonPrimary>Contribute on Github</System.ButtonPrimary>
-                </a>
-              
-              <div css={STYLES_IMAGES_CONTAINER}>
-                <div css={STYLES_IMAGE_CONT}><img css={STYLES_IMAGE_THREE} src="/static/githubissueA.jpg" alt="Previous GitHub Issues for Slate" /></div>
-                <div css={STYLES_IMAGE_CONT}><img css={STYLES_IMAGE_THREE} src="/static/githubissueB.jpg" alt="Previous GitHub Issues for Slate" /></div>
-                <div css={STYLES_IMAGE_CONT}> <img css={STYLES_IMAGE_THREE} src="/static/githubissueC.jpg" alt="Previous GitHub Issues for Slate" /></div>
-              </div>
-            
-            <System.P css={STYLES_SECTION_QUOTE}>
-              <q cite="#">Maybe put here an interesting quote about collaboration?</q><br/>
-              –Albert Einstein
-            </System.P>
-            </div>  
-          </div>
-          <div css={STYLES_CONTACT_CONTAINER}>
-            <System.H1 css={STYLES_HEADER_TEXT}>Contact</System.H1>
-            <System.P css={STYLES_SECTION_TEXT}>
-              Reach out to any of the core contributors, reach us on Twitter, or
-              join our Slack.
-            </System.P>
-            <div css={STYLES_CONTACT_BTN_CONTAINER}>
-              <a>
-                <System.ButtonPrimary>Join Slack Discussions</System.ButtonPrimary>
-              </a>
-              <a>
-                <System.ButtonPrimary>Twitter @_slate</System.ButtonPrimary>
-              </a>
+            <div>
+              {" "}
+              <div id="contr-cont" css={STYLES_CONTRIBUTOR_CONTAINER}></div>
             </div>
-          </div>
-          <div css={STYLES_SECTION_CONTAINER}>
-            <System.H1 css={STYLES_HEADER_TEXT}>Integrate</System.H1>
-            <System.P css={STYLES_SECTION_TEXT}>
-              Explore our API and SDK and build on top of Slate
-            </System.P>
-            <div css={STYLES_INTEGRATE_GIF}>
-              <CodeBlock>npm install --save slate-react-system</CodeBlock>
-              <img src="" alt="" />
-            </div>
-          </div>
-          <div css={STYLES_SECTION_CONTAINER}>
-            <System.H1 css={STYLES_HEADER_TEXT}>Design System</System.H1>
-            <div css={STYLES_DESIGN_CONTAINER}>
-              <System.P css={STYLES_SECTION_TEXT, STYLES_D_TEXT}>
-                Check out our open source design system. You can use these
-                components, experiences, and constants in your own React projects.
-                First, install the npm module:{" "}
+          </section>
+
+          <section>
+            <div>
+              <System.H1>Get Involved</System.H1>
+              <System.P>
+                Slate is a fully open-source file sharing network designed for
+                research and collaboration.
               </System.P>
-              <div css={STYLES_DESIGN_CODE}>
-                <CodeBlock>npm install --save slate-react-system</CodeBlock>
-              </div>
-              <div css={STYLES_D_IMAGE_CONTAINER}>  
-                <img css={STYLES_DESIGN_IMAGE} src="/static/designSystemScreenshot.png" alt="A screenshot of Slate's design system"/>
+              <br />
+              <br />
+              <div>
+                <img
+                  src="https://d2w9rnfcy7mm78.cloudfront.net/8547413/original_613b9b0a650a3f274c68e1407f552ff3.png?1599111034?bc=0"
+                  alt="Slate Web App Screenshot"
+                />
               </div>
             </div>
-          </div>
+            <div>
+              <System.H2>Contribute</System.H2>
+              <br />
+              <System.P>Get involved with the project and contribute.</System.P>
+              <br />
+              <br />
+            </div>
+            <div>
+              <System.H2>Contact</System.H2>
+              <br />
+              <System.P>
+                Reach out to any of the core contributors, reach us on Twitter,
+                or join our Slack.
+              </System.P>
+              <br />
+              <br />
+            </div>
+            <div>
+              <System.H2>Integrate</System.H2>
+              <br />
+              <System.P>
+                Explore our API and SDK and build on top of Slate.
+              </System.P>
+              <br />
+              <br />
+              <CodeBlock>npm install --save slate-react-system</CodeBlock>
+            </div>
+            <div>
+              <System.H2>Design System</System.H2>
+              <br />
+              <System.P>
+                Check out our open source design system for your projects
+              </System.P>
+              <br />
+              <br />
+              <CodeBlock>npm install --save slate-react-system</CodeBlock>
+            </div>
+          </section>
         </div>
         <WebsitePrototypeFooter />
       </WebsitePrototypeWrapper>

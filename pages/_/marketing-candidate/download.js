@@ -6,10 +6,11 @@ import * as System from "~/components/system";
 import { css } from "@emotion/react";
 
 import WebsitePrototypeWrapper from "~/components/core/WebsitePrototypeWrapper";
-import WebsitePrototypeHeader from "~/components/core/WebsitePrototypeHeader";
+import WebsitePrototypeHeader from "~/components/core/NewWebsitePrototypeHeader";
 import WebsitePrototypeFooter from "~/components/core/NewWebsitePrototypeFooter";
 
 const STYLES_ROOT = css`
+  padding: 16px 88px;
   section {
     width: 1140px;
     margin: auto;
@@ -30,6 +31,7 @@ const STYLES_ROOT = css`
     font-size: 18px;
     align-items: center;
     text-align: center;
+    margin: auto;
   }
 
   @media (max-width: ${Constants.sizes.mobile}px) {
@@ -51,17 +53,18 @@ const STYLES_EXTENSTION = css`
   flex-direction: row;
   align-self: center;
 `;
+
 const STYLES_WRAPPER_TEXT = css`
   width: 40%;
-  vertical-align: middle;
+  align-self: center;
+  padding: 0 50px;
 `;
+
 const STYLES_BROWSER_WINDOW = css`
-  border: 1px solid #000000;
-  box-shadow: 0px 0px 0px #dcdcdc;
-  vertical-align: middle;
-`;
-const STYLES_BROWSER_BANNER = css`
-  border: 1px solid #000000;
+  background: #ffffff;
+  box-shadow: 0px 10px 50px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  align-self: center;
 `;
 
 const STYLES_ANNOTATION = css`
@@ -97,129 +100,91 @@ export default class IndexPage extends React.Component {
       >
         <WebsitePrototypeHeader />
         <div css={STYLES_ROOT}>
+          <section css={STYLES_EXTENSTION}>
+            <div css={STYLES_BROWSER_WINDOW}>
+              <img
+                src="https://d2w9rnfcy7mm78.cloudfront.net/8547413/original_613b9b0a650a3f274c68e1407f552ff3.png?1599111034?bc=0"
+                alt="Slate browser extension"
+              />
+            </div>
+            <div css={STYLES_WRAPPER_TEXT}>
+              <System.H1>Slate Chrome Extensions</System.H1>
+              <br />
+
+              <System.P>
+                Take any image on the web and save it to Slate right from your
+                browser tab
+              </System.P>
+              <br />
+              <br />
+              <a>
+                <button>Get Chrome Extension</button>
+              </a>
+              <System.P css={STYLES_ANNOTATION}>
+                Currently avaible for <a href="/">Chrome</a>.
+              </System.P>
+            </div>
+          </section>
           <section css={STYLES_APP}>
             <div css={STYLES_WRAPPER_TEXT}>
               <System.H1>Slate client for Mac, Windows and Linux</System.H1>
+              <br />
               <System.P>
                 Local folder and offline client for seamless filesharing between
                 your machine and the network
               </System.P>
+              <br />
+              <br />
               <a>
-                <button>
-                  Download Slate for <span>Mac</span>
-                </button>
+                <button>Coming Soon</button>
               </a>
               <System.P css={STYLES_ANNOTATION}>
                 Also avaible for <a>Windows</a> and <a>Linux</a>
               </System.P>
             </div>
-
             <div css={STYLES_BROWSER_WINDOW}>
-              <span css={STYLES_BROWSER_BANNER}></span>
               <img
-                src="https://source.unsplash.com/user/gndclouds/800x600"
-                alt="example image"
+                src="https://d2w9rnfcy7mm78.cloudfront.net/8547413/original_613b9b0a650a3f274c68e1407f552ff3.png?1599111034?bc=0"
+                alt="Slate Web App Screenshot"
               />
             </div>
           </section>
 
-          <section css={STYLES_EXTENSTION}>
-            <div css={STYLES_BROWSER_WINDOW}>
-              <span css={STYLES_BROWSER_BANNER}></span>
-              <img
-                src="https://source.unsplash.com/user/gndclouds/800x600"
-                alt="example image"
-              />
-            </div>
+          <section css={STYLES_APP}>
             <div css={STYLES_WRAPPER_TEXT}>
-              <System.H1>Slate Chrome Extensions</System.H1>
+              <System.H1>Releases</System.H1>
+              <br />
               <System.P>
-                Take any image on the web and save it to Slate right from your
-                browser tab
-              </System.P>
-              <a>
-                <button>Get Chrome Extension</button>
-              </a>
-              <System.P css={STYLES_ANNOTATION}>
-                Currently avaible for <a>Chrome</a> .
+                Slate is built in public and all past releases are always
+                avaible for download.
               </System.P>
             </div>
-          </section>
-          <section>
-            <System.H1>Changelog</System.H1>
-            <System.P>List of releases</System.P>
-            <System.Table
-              data={{
-                columns: [
-                  { key: "a", name: "Link", type: "FILE_LINK" },
-
-                  { key: "b", name: "Value", width: "88px" },
-
-                  {
-                    key: "c",
-
-                    name: "Tooltip",
-
-                    tooltip: "A tooltip.",
-
-                    width: "128px"
-                  },
-
-                  { key: "d", name: "Copyable", copyable: true, width: "88px" }
-                ],
-
-                rows: [
-                  {
-                    id: 1,
-
-                    a: "col 1 row 1",
-
-                    b: "col 1 row 2",
-
-                    c: "col 1 row 3",
-
-                    d: "col 1 row 4"
-                  },
-
-                  {
-                    id: 2,
-
-                    a: "col 2 row 1",
-
-                    b: "col 2 row 2",
-
-                    c: "col 2 row 3",
-
-                    d: "col 2 row 4"
-                  },
-
-                  {
-                    id: 3,
-
-                    a: "col 3 row 1",
-
-                    b: "col 3 row 2",
-
-                    c: "col 3 row 3",
-
-                    d: "col 3 row 4"
-                  },
-
-                  {
-                    id: 3,
-
-                    a: "col 4 row 1",
-
-                    b: "col 4 row 2",
-
-                    c: "col 4 row 3",
-
-                    d: "col 4 row 4"
-                  }
-                ]
-              }}
-              name="exampleOne"
-            />
+            <div>
+              <System.Table
+                data={{
+                  columns: [
+                    { key: "a", name: "Version / Product", width: "50%" },
+                    { key: "b", name: "Date", width: "50%" },
+                    { key: "c", name: "Link", width: "50%" }
+                  ],
+                  rows: [
+                    {
+                      id: 1,
+                      a: "v1.0.0 Design System",
+                      b: "2020 09 14",
+                      c: "Download"
+                    },
+                    {
+                      id: 1,
+                      a: "v1.0.0 Chome Extenstion",
+                      b: "2020 09 14",
+                      c: "Download"
+                    }
+                  ]
+                }}
+                name="exampleOne"
+              />
+            </div>
           </section>
         </div>
         <WebsitePrototypeFooter />

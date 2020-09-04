@@ -13,6 +13,9 @@ const STYLES_ROOT = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  padding: 5%;
+  margin: 0;
   section {
     padding: 150px;
   }
