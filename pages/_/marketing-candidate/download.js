@@ -84,6 +84,10 @@ const STYLES_A = css`
 
 const STYLES_IMG = css`
   width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 10px 90px 20px rgba(207, 206, 211, 0.3);
+
   :hover {
   }
   @media (max-width: ${Constants.sizes.mobile}px) {
@@ -111,7 +115,6 @@ const STYLES_BUTTON_PRIMARY = css`
   font-family: ${Constants.font.semiBold};
   transition: 200ms ease all;
   user-select: none;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   background-color: ${Constants.system.wall};
   color: ${Constants.system.slate};
@@ -136,7 +139,7 @@ const STYLES_SECTION_WRAPPER = css`
   justify-content: space-between;
   align-items: center;
   height: 55vh;
-  margin: 10px auto;
+  padding: 16px 88px;
   :nth-child(even) {
     margin: 150px auto;
     flex-direction: row-reverse;
@@ -145,6 +148,7 @@ const STYLES_SECTION_WRAPPER = css`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 5px;
     :nth-child(even) {
       flex-direction: column;
     }
@@ -153,7 +157,7 @@ const STYLES_SECTION_WRAPPER = css`
 
 const STYLES_SECTION_CHILD = css`
   width: 50%;
-  padding: 0 50px;
+  padding: 0 20px;
   @media (max-width: ${Constants.sizes.mobile}px) {
     width: 100%;
     padding: 20px;
@@ -166,18 +170,10 @@ export const getServerSideProps = async context => {
   };
 };
 
-export default class IndexPage extends React.Component {
-  async componentDidMount() {
-    const response = await Actions.health();
-    console.log("HEALTH_CHECK", response);
-  }
-  getOs = () => {
-    const os = ["Windows", "Linux", "Mac"]; // add your OS values
-    return os.find(v => navigator.appVersion.indexOf(v) >= 0);
-  };
+export default class DownloadPage extends React.Component {
   render() {
     const title = `Slate Download`;
-    const description = "Donwload Slate app and web extenstion";
+    const description = "Download Slate app and web extension";
     const url = "https://slate.host/download";
 
     return (
@@ -205,10 +201,12 @@ export default class IndexPage extends React.Component {
               </h2>
             </div>
             <div css={STYLES_SECTION_CHILD}>
-              <img
+              <video
                 css={STYLES_IMG}
-                src="https://d2w9rnfcy7mm78.cloudfront.net/8547413/original_613b9b0a650a3f274c68e1407f552ff3.png?1599111034?bc=0"
-                alt="Slate browser extension"
+                Autoplay="autoplay"
+                Loop="loop"
+                src="https://bafybeibkvzeqdewd4fbpujn42brmqi2alh67ysgsjv2zhp7wardym5ywke.ipfs.slate.textile.io"
+                type="video/mov"
               />
             </div>
           </div>
