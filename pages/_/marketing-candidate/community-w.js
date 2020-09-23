@@ -49,6 +49,7 @@ const STYLES_SECTION_WRAPPER = css`
   padding: 44px;
   margin: 12px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   background-color: ${Constants.system.white};
   border-radius: 16px;
@@ -77,7 +78,6 @@ const STYLES_BUTTON = css`
   letter-spacing: -0.011rem;
   box-shadow: 0px 10px 50px 20px rgba(0, 0, 0, 0.1);
   transition: 200ms ease all;
-  cursor: pointer;
 
   :hover {
     background: ${Constants.system.white};
@@ -105,12 +105,15 @@ const STYLES_FULL_WIDTH = css`
 
 const STYLES_SPLIT_WIDTH = css`
   width: 50%;
-  align-items: center;
   :nth-child(2) {
     padding-left: 18px;
   }
 
   @media (max-width: ${Constants.sizes.tablet}px) {
+    width: 100%;
+  }
+
+  @media (max-width: ${Constants.sizes.mobile}px) {
     width: 100%;
   }
 `;
@@ -119,21 +122,11 @@ const STYLES_CARD_NAME = css`
   font-size: ${Constants.typescale.lvl1};
   align-items: center;
   justify-content: center;
-  display: inline;
-
-  :hover {
-    display: none;
-  }
 `;
 
 const STYLES_CARD_GITHUB = css`
   font-size: ${Constants.typescale.lvl0};
   text-align: left;
-  display: none;
-
-  :hover {
-    display: inline;
-  }
 `;
 
 const STYLES_CARD_TEXT = css`
@@ -182,6 +175,7 @@ const STYLES_IMG = css`
 `;
 
 const STYLES_CHAT = css`
+  width: 350px;
   background: #ffffff;
   opacity: 0.5;
   border: 1px solid #000000;
@@ -192,6 +186,34 @@ const STYLES_CHAT = css`
   border-radius: 8px;
 `;
 
+const STYLES_CONSOLE = css`
+  box-sizing: border-box;
+  font-family: ${Constants.font.mono};
+  display: block;
+  border-radius: 4px;
+  width: 100%;
+  background: ${Constants.system.red};
+  padding: 8px 24px;
+  color: ${Constants.system.white};
+  font-size: 14px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+
+  :hover {
+  }
+`;
+
+const STYLES_CONSOLE_BODY = css`
+  background-color: pink;
+  color: ${Constants.system.white};
+  font-family: ${Constants.system.mono};
+  font-size: 14px;
+  display: inline-block;
+
+  :hover {
+  }
+`;
+
 const STYLES_WINDOW = css`
   box-sizing: border-box;
   font-family: ${Constants.font.mono};
@@ -199,12 +221,14 @@ const STYLES_WINDOW = css`
   border-radius: 4px;
   width: 100%;
   background: ${Constants.system.pitchBlack};
-  min-height: 288px;
   padding: 8px 24px;
   color: ${Constants.system.white};
   font-size: 14px;
   box-sizing: border-box;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+
+  :hover {
+  }
 `;
 
 const STYLES_WINDOW_NAV = css`
@@ -213,48 +237,53 @@ const STYLES_WINDOW_NAV = css`
 `;
 
 const STYLES_WINDOW_BODY = css`
+  background-color: pink;
   color: ${Constants.system.white};
   font-family: ${Constants.system.mono};
   font-size: 14px;
-  overflow: hidden;
-  white-space: nowrap;
   display: inline-block;
-  position: relative;
+
+  :hover {
+  }
 `;
 
 const STYLES_WINDOW_NAV_DOTS = css`
   display: flex;
+  padding-top: 8px;
 `;
 
 const STYLES_WINDOW_NAV_RED = css`
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   margin-right: 8px;
   background: #cc2a42;
   border-radius: 50px;
 
   :hover {
+    opacity: 0.5;
   }
 `;
 
 const STYLES_WINDOW_NAV_YELLOW = css`
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   margin-right: 8px;
   background: #fabb2a;
   border-radius: 50px;
 
   :hover {
+    opacity: 0.5;
   }
 `;
 
 const STYLES_WINDOW_NAV_GREEN = css`
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   background: #19774b;
   border-radius: 50px;
 
   :hover {
+    opacity: 0.5;
   }
 `;
 
@@ -510,13 +539,31 @@ export default class CommunityPage extends React.Component {
                 recommendation.{" "}
               </p>
               <div>
-                <button css={STYLES_BUTTON}>Create an issue</button>
-                <button css={STYLES_BUTTON}>Email us feedback</button>
+                <button
+                  css={STYLES_BUTTON}
+                  onClick={() =>
+                    window.open(
+                      "https://github.com/filecoin-project/slate/issues/new/choose"
+                    )
+                  }
+                >
+                  Create an issue
+                </button>
+                <button
+                  css={STYLES_BUTTON}
+                  onClick={() =>
+                    window.open(
+                      "https://chrome.google.com/webstore/detail/slate/gloembacbehhbfbkcfjmloikeeaebnoc"
+                    )
+                  }
+                >
+                  Email us feedback
+                </button>
               </div>
             </div>
           </div>
           <div css={STYLES_SECTION_WRAPPER} style={{ marginTop: 80 }}>
-            <div>
+            <div css={STYLES_SPLIT_WIDTH}>
               <h1>
                 <span css={STYLES_HIGLIGHT_TEXT_YELLOW}>
                   Add Slate to your next project
@@ -528,19 +575,48 @@ export default class CommunityPage extends React.Component {
                 Checkout the examples below to see how quickly you can get up
                 and running wtih Slate’s API.
               </p>
-              <button css={STYLES_BUTTON}>Checkout our API</button>
-            </div>
-            <div css={STYLES_WINDOW}>
-              <div css={STYLES_WINDOW_NAV}>
-                {" "}
-                <div css={STYLES_WINDOW_NAV_DOTS}>
-                  <div css={STYLES_WINDOW_NAV_RED}></div>
-                  <div css={STYLES_WINDOW_NAV_YELLOW}></div>
-                  <div css={STYLES_WINDOW_NAV_GREEN}></div>
-                </div>{" "}
+              <button
+                css={STYLES_BUTTON}
+                onClick={() => window.open("https://slate.host/system")}
+              >
+                Checkout our API
+              </button>
+              <div>
+                <img src="" />
+                <p>Upload data to slate by ID </p>
               </div>
+              <div>
+                <img src="" />
+                <p>Get slate by ID </p>
+              </div>
+              <div>
+                <img src="" />
+                <p>Get all slates </p>
+              </div>
+            </div>
+            <div css={STYLES_SPLIT_WIDTH}>
+              <div css={STYLES_WINDOW}>
+                <div css={STYLES_WINDOW_NAV}>
+                  <div css={STYLES_WINDOW_NAV_DOTS}>
+                    <div css={STYLES_WINDOW_NAV_RED}></div>
+                    <div css={STYLES_WINDOW_NAV_YELLOW}></div>
+                    <div css={STYLES_WINDOW_NAV_GREEN}></div>
+                  </div>
+                </div>
 
-              <div css={STYLES_WINDOW_BODY}>CODE GPOES HERE</div>
+                <div css={STYLES_WINDOW_BODY}>
+                  <code>{`
+                  const json = await response.json();
+                  console.log(json);`}</code>
+                </div>
+              </div>
+              <div css={STYLES_CONSOLE}>
+                <div css={STYLES_CONSOLE_BODY}>
+                  <code>{`
+                const json = await response.json();
+                console.log(json);`}</code>
+                </div>
+              </div>
             </div>
           </div>
         </div>
